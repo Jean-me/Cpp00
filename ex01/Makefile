@@ -1,19 +1,19 @@
 # My Awesome PhoneBook
 NAME = ex01
-SRCS = My_Awesome_PhoneBook.cpp
+SRCS = My_Awesome_PhoneBook.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
 # Compiler
-CC = g++
-CFLAGS = -Wall -Wextra -Werror -g
+C++ = g++
+C++FLAGS = -Wall -Wextra -Werror -g
 
 # Rules
 all: $(NAME)
 
 $(NAME):	$(OBJS) 
-	$(CC) $(OBJS) -o $(NAME)
+	$(C++) $(C++FLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(C++) $(C++FLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJS)

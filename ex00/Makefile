@@ -1,19 +1,19 @@
 # Megaphone
 NAME = ex00
-SRCS = ex00.cpp
+SRCS = megaphone.cpp
 OBJS = $(SRCS:%.c=%.o)
 # Compiler
-CC = g++
-CFLAGS = -Wall -Wextra -Werror -g
+C++ = g++
+C++FLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Rules
 all: $(NAME)
 
 $(NAME):	$(OBJS) 
-	$(CC) $(OBJS) -o $(NAME)
+	$(C++) $(C++FLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(C++) $(C++FLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJS)

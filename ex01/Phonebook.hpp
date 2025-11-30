@@ -18,20 +18,6 @@
 #include <cctype>
 #include "Contact.hpp"
 
-// ヘルパ
-static std::string fit10(const std::string& s)
-{
-    if (s.size() > 10)
-        return s.substr(0, 9) + ".";
-    return std::string(10 - (int)s.size(), ' ') + s;
-}
-
-static bool is_number(const std::string &s)
-{
-    if (s.empty()) return false;
-    for (char ch : s) if (!std::isdigit((unsigned char)ch)) return false;
-    return true;
-}
 
 class Phonebook
 {
@@ -42,9 +28,9 @@ public:
    Phonebook();
 
    void add(std::string new_name, std::string new_lastname, std::string new_nickname, std::string new_number, std::string new_darkestsecret);
-   bool printContact(int index) const;
+   bool printContact(int index);
    void search();
-   void displayContacts() const;
+   void displayContacts();
 };
 
 #endif

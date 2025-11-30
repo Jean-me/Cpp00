@@ -24,15 +24,20 @@ private:
     std::string phoneNumber;
     std::string darkestSecret;
 public:
-    std::string getName() const 
+    std::string getName();
+    void setName(std::string n);
 
-    std::string getLastName() const
+    std::string getLastName();
+    void setLastName(std::string n);
 
-    std::string getNickName() const
+    std::string getNickName();
+    void setNickName(std::string n);
 
-    std::string getPhoneNumber() const
+    std::string getPhoneNumber();
+    void setPhoneNumber(std::string n);
 
-    std::string getDarkestSecret() const
+    std::string getDarkestSecret();
+    void setDarkestSecret(std::string n);
 };
 
 #endif
