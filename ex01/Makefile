@@ -3,8 +3,8 @@ NAME = ex01
 SRCS = My_Awesome_PhoneBook.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
 # Compiler
-C++ = g++
-C++FLAGS = -Wall -Wextra -Werror -g
+C++ = c++
+C++FLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 # Rules
 all: $(NAME)
