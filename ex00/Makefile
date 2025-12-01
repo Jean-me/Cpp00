@@ -3,7 +3,7 @@ NAME = ex00
 SRCS = megaphone.cpp
 OBJS = $(SRCS:%.c=%.o)
 # Compiler
-C++ = g++
+C++ = c++
 C++FLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Rules
