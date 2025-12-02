@@ -135,8 +135,18 @@ static std::string fit10(const std::string& s)
 static bool is_number(std::string &s)
 {
     if (s.empty()) return false;
-    for (char ch : s) if (!std::isdigit((unsigned char)ch)) return false;
-    return true;
+    for (size_t i = 0; i < s.size(); ++i)
+    { 
+        if (!std::isdigit((unsigned char)s[i])) return false;
+    }
+        return true;
+}
+
+static std::string int_to_string(int n)
+{
+    std::ostringstream oss;
+    oss << n;
+    return oss.str();
 }
 
 //--------------------------------------------------------
@@ -189,12 +199,17 @@ void Phonebook::search()
 	std::string line;
 	if(!std::getline(std::cin, line))
 		return;
-	if(!is_number(line) || line.empty() || std::stoi(line) < 1 || std::stoi(line) > count)
+	if(!is_number(line) || line.empty())
 	{
 		std::cout << "Invalid index." << std::endl;
 		return;
 	}
-	 int idx = std::stoi(line);
+	int idx = std::atoi(line.c_str());
+    if(idx < 1 || idx > count)
+    {
+        std::cout << "Invalid index." << std::endl;
+        return;
+    }
        if (!printContact(idx)) 
            std::cout << "Invalid index." << std::endl;
 }
@@ -209,7 +224,7 @@ void Phonebook::displayContacts()
 
     for (int i = 0; i < count; ++i)
     {
-        std::cout   << fit10(std::to_string(i + 1)) << "|"
+        std::cout   << fit10(int_to_string(i + 1)) << "|"
                     << fit10(contacts[i].getName()) << "|"
                     << fit10(contacts[i].getLastName()) << "|"
                     << fit10(contacts[i].getNickName()) << "|"

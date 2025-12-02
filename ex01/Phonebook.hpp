@@ -16,6 +16,8 @@
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <cstdlib>
+#include <sstream>
 #include "Contact.hpp"
 
 

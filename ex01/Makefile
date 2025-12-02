@@ -3,17 +3,17 @@ NAME = ex01
 SRCS = My_Awesome_PhoneBook.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
 # Compiler
-C++ = c++
-C++FLAGS = -Wall -Wextra -Werror -g -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic-errors
 
 # Rules
 all: $(NAME)
 
 $(NAME):	$(OBJS) 
-	$(C++) $(C++FLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.cpp
-	$(C++) $(C++FLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJS)
